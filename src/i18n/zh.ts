@@ -1,0 +1,412 @@
+
+export const zh = {
+    navbar: {
+      deploy: '部署',
+      save: '保存',
+      test: '测试',
+      publish: '发布',
+      project: '阿尔法项目',
+      backToDash: '返回控制台',
+    },
+    sidebar: {
+      title: '组件库',
+      search: '搜索节点...',
+      categories: {
+        'Source': '数据源',
+        'AI Model': 'AI 模型',
+        'Logic': '逻辑处理',
+        'Output': '输出结果'
+      }
+    },
+    dashboard: {
+      menu: {
+        platform: '平台',
+        config: '配置',
+        home: '首页',
+        projects: '项目管理',
+        workflows: '工作流',
+        monitoring: '监控中心',
+        deployments: '部署管理',
+        explore: '发现',
+        settings: '系统设置',
+        help: '帮助与文档',
+        notifications: '消息通知',
+        selfHosted: '自托管',
+        shOverview: '概览',
+        shDevices: '设备',
+        shLicenses: '许可证',
+        media: '媒体库',
+      },
+      headers: {
+        myWorkflows: '我的工作流',
+        createNew: '新建工作流',
+        shOverview: '自托管概览',
+        shOverviewStats: '概览',
+        mediaLibrary: '媒体资源库',
+      },
+      stats: {
+        totalFlows: '总工作流',
+        activeNodes: '活跃节点',
+        uptime: '系统运行时间'
+      },
+      card: {
+        nodes: '节点数',
+        edit: '编辑工作流',
+        lastUpdated: '更新于'
+      },
+      usage: {
+        title: '额度使用',
+        used: '已用 0 额度',
+        reset: '12月31日重置',
+        upgrade: '升级套餐'
+      },
+      pagination: {
+        showing: '显示',
+        of: '共'
+      }
+    },
+    media: {
+      storage: {
+        title: '存储使用',
+        used: '已用',
+        total: '总量',
+        items: '个文件',
+      },
+      filters: {
+        all: '全部资源',
+        images: '图片',
+        videos: '视频',
+      },
+      upload: '上传文件',
+      searchPlaceholder: '搜索文件...',
+      table: {
+        name: '文件名',
+        type: '类型',
+        size: '大小',
+        date: '上传时间',
+        dimension: '分辨率',
+        actions: '操作',
+      },
+      empty: '暂无媒体资源。',
+    },
+    selfHosted: {
+      breadcrumbs: {
+        root: '自托管',
+        overview: '概览',
+        devices: '设备',
+        deviceDetail: '设备详情',
+      },
+      timeRange: {
+        last24h: '最近 24小时',
+        last7d: '最近 7天',
+        last30d: '最近 30天',
+        custom: '自定义',
+      },
+      cards: {
+        totalDevices: '设备总数',
+        licenseUsage: 'License 使用情况',
+        usageSummary: '用量汇总',
+        edge: '边缘 (EDGE)',
+        cloud: '云端 (CLOUD)',
+        expiring: '即将到期',
+      },
+      status: {
+        online: '在线',
+        offline: '离线',
+        pending: '待绑定 License',
+        draining: '排空中',
+        decommissioned: '已退役',
+      },
+      tooltips: {
+        edgeMode: '仅按自托管设备 License 计费，用量仅作为可观测性指标，不计入云端按量计费。',
+        cloudMode: '该设备的用量会计入云端按量计费。',
+        offlineLease: '支持在无网络连接的情况下运行长达 30 天。'
+      },
+      charts: {
+        deviceStatus: '设备状态分布',
+        usageTrend: '用量趋势',
+      },
+      alerts: {
+        title: '告警列表',
+        longOffline: '设备 X 离线超过 30分钟',
+        licenseExpiring: '许可证 ABC 将在 7天后到期',
+        highUsage: '云端用量异常激增',
+        levels: {
+            critical: '严重',
+            warning: '警告',
+            info: '信息'
+        }
+      },
+      shortcuts: {
+        title: '快捷入口',
+        viewDevices: '查看设备列表',
+        viewLicenses: '管理许可证',
+        recentReleases: '最近配置发布',
+      },
+      devices: {
+        title: '设备列表',
+        searchPlaceholder: '搜索设备名称、ID、Runtime ID...',
+        filters: {
+            all: '全部状态',
+            online: '在线',
+            offline: '离线',
+            pending: '待绑定',
+            draining: '排空中',
+            decommissioned: '已退役',
+            edge: '边缘端',
+            cloud: '云端',
+            region: '区域',
+            tags: '标签'
+        },
+        alert: {
+            pendingMessage: '检测到 3 台新设备未绑定 License，无法正常运行。',
+            filterAction: '仅看待绑定设备'
+        },
+        table: {
+            device: '设备信息',
+            ids: '设备标识',
+            status: '状态',
+            mode: '部署模式',
+            license: '许可证',
+            config: '配置版本',
+            lastSeen: '最近活跃',
+            usage: '今日用量',
+            actions: '操作',
+            unbound: '未绑定'
+        },
+        actions: {
+            refresh: '刷新',
+            export: '导出',
+            view: '查看详情',
+            bind: '绑定 License',
+            drain: '标记排空'
+        }
+      },
+      deviceDetail: {
+        tabs: {
+            overview: '总览',
+            deployment: 'Workflow 部署',
+            usage: '用量统计',
+            logs: '日志与遥测',
+        },
+        header: {
+            deviceInfo: '设备概况',
+            licenseInfo: '许可证信息',
+            configInfo: '当前配置',
+            changeLicense: '更换 License',
+            changeMode: '切换模式',
+            offlineLease: '离线租约',
+            audit: '最近变更',
+        },
+        modeSwitchModal: {
+            title: '切换部署模式',
+            edgeToCloud: '您正在将此设备切换为 CLOUD 模式。后续用量将根据云端按量付费费率进行计量和计费。',
+            cloudToEdge: '您正在将此设备切换为 EDGE 模式。云端处理能力将被禁用，用量数据仅用于可观测性统计。',
+            confirm: '确认切换',
+            cancel: '取消'
+        },
+        overview: {
+            runningStatus: '运行状态',
+            heartbeat: '最近心跳',
+            activeStreams: '正在运行 Streams',
+            billing: {
+                edge: 'EDGE：仅设备 License 计费',
+                cloud: 'CLOUD：用量会进入云端计费',
+            },
+            configSummary: '配置摘要',
+            usageSummary: '用量概要',
+            imageCount: 'Image Count',
+            videoSeconds: 'Video Seconds(s)'
+        },
+        deployment: {
+            currentVersion: '当前配置版本',
+            status: '状态',
+            history: '版本历史',
+            rollback: '回滚',
+            streams: 'Stream 列表',
+            addStream: '新增 Stream',
+            table: {
+                stream: 'Stream',
+                input: '输入源',
+                workflow: 'Workflow',
+                status: '运行状态',
+                telemetry: '遥测级别',
+                updated: '更新时间',
+            },
+            snapshot: {
+                view: '快照',
+                diff: '变更对比',
+                rollback: '回滚至此版本',
+                empty: '此版本未配置任何 Stream。',
+                emptyDiff: '与上个版本相比无变更。',
+                fields: {
+                    workflow: '工作流',
+                    input: '输入源',
+                    concurrency: '并发数',
+                    telemetry: '遥测级别'
+                }
+            },
+            drawer: {
+                titleAdd: '新增 Stream',
+                titleEdit: '编辑 Stream',
+                basic: '基本信息',
+                input: '输入配置',
+                workflow: 'Workflow 绑定',
+                policy: '运行策略',
+                save: '保存配置',
+                cancel: '取消',
+                versionStrategy: '版本策略',
+                strategies: {
+                  latest: '最新版',
+                  specific: '指定版本'
+                },
+                selectVersion: '选择版本',
+            }
+        },
+        usage: {
+            filters: {
+                dimension: '聚合维度',
+                mode: '部署模式',
+                metric: '指标',
+            },
+            dimensions: {
+                workflow: '按 Workflow',
+                stream: '按 Stream',
+            },
+            table: {
+                id: '标识',
+                images: '总 Image Count',
+                video: '总 Video (s)',
+                calls: '调用次数',
+                errors: '错误率',
+                mode: '模式',
+            },
+            charts: {
+                errorRate: '错误率趋势',
+            },
+            disclaimer: {
+                cloud: 'deployment_mode=CLOUD 的用量会计入云端按量计费',
+                edge: 'deployment_mode=EDGE 的用量仅用于监控，不计费',
+            },
+            cloudNotice: '此处展示的 CLOUD 模式用量将计入您的月度账单。',
+        },
+        logs: {
+            recentEvents: '最近遥测事件',
+            viewObservability: '前往可观测性平台查看完整日志',
+        }
+      },
+      licenseModal: {
+        title: '选择许可证',
+        searchPlaceholder: '搜索许可证名称、ID...',
+        filter: {
+          all: '全部类型',
+          selfHosted: '自托管',
+          cloud: '云端'
+        },
+        columns: {
+          license: '许可证详情',
+          type: '类型 / 计费',
+          usage: '设备用量',
+          expiry: '到期时间',
+          features: '特性'
+        },
+        summary: {
+          selected: '已选许可证',
+          billingDesc: '计费说明',
+          capabilities: '能力'
+        },
+        confirm: '绑定许可证',
+        cancel: '取消'
+      },
+      licenses: {
+        title: '许可证管理',
+        searchPlaceholder: '搜索许可证名称、ID...',
+        actions: {
+            activate: '激活新许可证',
+        },
+        table: {
+            details: '许可证详情',
+            type: '类型',
+            allocation: '分配情况',
+            expiry: '有效期至',
+            status: '状态',
+            actions: '操作'
+        },
+        status: {
+            active: '生效中',
+            expired: '已过期',
+            expiring: '即将过期'
+        }
+      }
+    },
+    inspector: {
+      title: '参数配置',
+      id: '节点 ID',
+      label: '名称',
+      description: '描述',
+      parameters: '参数设置',
+      activeState: '激活状态',
+      delete: '删除',
+      close: '关闭',
+      confThreshold: '置信度阈值',
+      iouThreshold: 'IOU 阈值',
+      resolution: '分辨率',
+      fps: '帧率'
+    },
+    nodes: {
+      input: { label: '视频源', desc: '摄像头, RTSP, 本地文件' },
+      detection: { label: '目标检测', desc: 'YOLO, SSD, FasterRCNN' },
+      tracking: { label: '目标跟踪', desc: 'ByteTrack, DeepSort' },
+      pose: { label: '姿态估计', desc: 'MoveNet, PoseNet' },
+      classifier: { label: '图像分类', desc: 'ResNet, MobileNet' },
+      logic: { label: '逻辑控制', desc: '过滤, 开关, 合并' },
+      output: { label: '结果输出', desc: '数据库, API, 文件' }
+    },
+    status: {
+      idle: '空闲',
+      running: '运行中',
+      completed: '已完成',
+      error: '错误'
+    },
+    modelLibrary: {
+      title: '添加模型',
+      tabs: {
+        types: '模型类型',
+        custom: '我的模型',
+        public: '公共模型'
+      },
+      searchPlaceholder: '搜索模型组件...',
+      addModel: '添加模型',
+      cancel: '取消',
+      popular: '热门'
+    },
+    history: {
+      title: '版本历史',
+      versionsAvailable: '个可用版本',
+      restore: '恢复此版本',
+      types: {
+        current: '当前版本',
+        save: '手动保存',
+        init: '项目创建'
+      },
+      time: {
+        justNow: '刚刚',
+        hoursAgo: '2小时前',
+        yesterday: '昨天 16:20',
+        daysAgo: '3天前'
+      }
+    },
+    workspace: {
+      title: '视觉团队',
+      personal: '个人空间',
+      team: '团队版',
+      addTeam: '创建工作空间',
+      settings: '工作空间设置',
+      logout: '退出登录',
+      members: '成员',
+      plan: '免费版',
+      searchPlaceholder: '搜索工作空间...',
+      listTitle: '工作空间列表'
+    }
+  }
+};
