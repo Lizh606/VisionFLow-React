@@ -408,5 +408,4 @@ export const zh = {
       searchPlaceholder: '搜索工作空间...',
       listTitle: '工作空间列表'
     }
-  }
 };
