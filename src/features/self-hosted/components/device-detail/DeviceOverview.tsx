@@ -1,3 +1,4 @@
+
 import React, { useMemo } from 'react';
 import { ThemeColors } from '../../../../types/index';
 import { Card } from './shared/Card';
@@ -77,7 +78,7 @@ export const DeviceOverview: React.FC<DeviceOverviewProps> = ({
 
         return (
             <div className="w-full flex items-center gap-3 p-2.5 rounded-lg border transition-all hover:bg-black/5 dark:hover:bg-white/5 group" style={{ borderColor: theme.stroke }}>
-                <div className={`px-2 py-0.5 rounded text-[9px] font-bold ${bg} ${text} shrink-0 min-w-[50px] text-center border ${border}`}>
+                <div className={`px-2 py-1 rounded text-[9px] font-bold ${bg} ${text} shrink-0 w-20 flex items-center justify-center border ${border}`}>
                     {label}
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col gap-0.5">

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ThemeColors, ThemeMode } from '../../../../types/index';
 import { Cloud, Activity, ImageIcon, Video } from 'lucide-react';
@@ -125,38 +126,38 @@ export const DeviceUsage: React.FC<DeviceUsageProps> = ({
                     </div>
 
                 {/* Usage Trend Chart (Right Half) */}
-                <div className="rounded-2xl border p-5 flex flex-col h-full" style={{ background: theme.surface, borderColor: theme.stroke }}>
-                        <div className="flex justify-between items-start mb-6">
+                <div className="rounded-2xl border p-0 flex flex-col h-full" style={{ background: theme.surface, borderColor: theme.stroke }}>
+                        <div className="p-4 border-b shrink-0 flex justify-between items-center" style={{ borderColor: theme.stroke }}>
                             <div>
-                                <h3 className="font-bold text-lg" style={{ color: theme.text }}>{tCommon.charts.usageTrend}</h3>
-                                <div className="text-xs opacity-60 mt-1" style={{ color: theme.textSecondary }}>
+                                <h3 className="font-bold text-sm" style={{ color: theme.text }}>{tCommon.charts.usageTrend}</h3>
+                                <div className="text-[10px] opacity-60 mt-0.5" style={{ color: theme.textSecondary }}>
                                 Showing {detailMetric === 'image' ? 'Image Count' : 'Video Seconds'}
                                 </div>
                             </div>
                             
                             {/* Metric Toggle */}
-                            <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-lg border" style={{ borderColor: theme.stroke }}>
+                            <div className="flex bg-black/5 dark:bg-white/5 p-0.5 rounded-lg border" style={{ borderColor: theme.stroke }}>
                                 <button 
                                 onClick={() => setDetailMetric('image')}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold transition-colors ${detailMetric === 'image' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-500' : 'opacity-60 hover:opacity-100'}`}
+                                className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] font-bold transition-colors ${detailMetric === 'image' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-500' : 'opacity-60 hover:opacity-100'}`}
                                 style={{ color: detailMetric === 'image' ? theme.primary : theme.text }}
                                 >
-                                    <ImageIcon size={14} />
+                                    <ImageIcon size={12} />
                                     Images
                                 </button>
                                 <button 
                                 onClick={() => setDetailMetric('video')}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold transition-colors ${detailMetric === 'video' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-500' : 'opacity-60 hover:opacity-100'}`}
+                                className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] font-bold transition-colors ${detailMetric === 'video' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-500' : 'opacity-60 hover:opacity-100'}`}
                                 style={{ color: detailMetric === 'video' ? theme.primary : theme.text }}
                                 >
-                                    <Video size={14} />
+                                    <Video size={12} />
                                     Video
                                 </button>
                             </div>
                         </div>
                         
                         {/* Chart Render */}
-                        <div className="flex-1 w-full relative min-h-[250px]">
+                        <div className="flex-1 w-full relative min-h-[250px] p-5">
                             {device.status === 'PENDING_LICENSE' ? (
                                 <div className="absolute inset-0 flex items-center justify-center opacity-30">No Data</div>
                             ) : (
