@@ -16,6 +16,33 @@ export const getMockDevice = (id?: string) => {
         };
     }
 
+    // Simulate Long-term Offline Device (ID 11 from Device List)
+    if (id === '11') {
+        return {
+            id: '11',
+            name: 'Edge-Gateway-04',
+            deviceId: 'dev_829305_offline',
+            runtimeId: 'rt_2204',
+            status: 'OFFLINE',
+            mode: 'EDGE',
+            lastSeen: '2h ago', // Long term offline
+            activeStreams: 2,
+            license: {
+                id: 'lic_enterprise_001',
+                name: 'Enterprise-Edge-v2',
+                type: 'per-device',
+                expiresAt: '2024-12-31',
+                quota: { used: 1, total: 100 },
+                offlineLease: true
+            },
+            config: {
+                version: 'v2.4.0',
+                streamCount: 2,
+                lastAudit: '2024-05-20 08:00 by Admin'
+            }
+        };
+    }
+
     // Default "Online" device
     return { 
         id: '1', 
@@ -101,7 +128,6 @@ export const MOCK_DIFFS: Record<string, VersionDiff[]> = {
 };
 
 export const MOCK_DEVICE_ALERTS = [
-     { level: 'CRITICAL', msg: 'Device was offline for 2 mins', entityId: 'dev_829302_abcdef', entityType: 'DEVICE', time: '10m ago' },
      { level: 'WARNING', msg: 'High memory usage (85%)', entityId: 'dev_829302_abcdef', entityType: 'DEVICE', time: '1h ago' },
      { level: 'INFO', msg: 'Config v2.4.1 applied successfully', entityId: 'cfg_v2.4.1', entityType: 'CONFIG', time: '2h ago' }
 ];

@@ -179,7 +179,8 @@ export const en = {
             export: 'Export',
             view: 'View',
             bind: 'Bind License',
-            drain: 'Drain Node'
+            drain: 'Drain Node',
+            decommission: 'Decommission'
         }
       },
       deviceDetail: {

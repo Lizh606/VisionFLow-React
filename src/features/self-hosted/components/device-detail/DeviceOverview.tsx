@@ -4,7 +4,7 @@ import { ThemeColors } from '../../../../types/index';
 import { Card } from './shared/Card';
 import { TimeRangePicker } from './shared/TimeRangePicker';
 import { UsageChart } from './shared/UsageChart';
-import { BarChart2, Check } from 'lucide-react';
+import { BarChart2, Check, WifiOff, Ban, Trash2, ExternalLink } from 'lucide-react';
 import { MOCK_STREAMS, MOCK_DEVICE_ALERTS } from './mockData';
 
 interface DeviceOverviewProps {
@@ -58,6 +58,25 @@ export const DeviceOverview: React.FC<DeviceOverviewProps> = ({
         return { xAxis: xLabels, data1, data2 };
     }, [usageTimeRange]);
 
+    // Dynamic Alerts: Inject specific critical alerts based on device state
+    const displayAlerts = useMemo(() => {
+        const alerts = [...MOCK_DEVICE_ALERTS];
+        
+        // Inject offline alert
+        if (device.status === 'OFFLINE') {
+            const offlineMsg = tCommon.alerts.longOffline.replace('X', device.name);
+            alerts.unshift({
+                level: 'CRITICAL',
+                msg: offlineMsg,
+                entityId: device.deviceId,
+                entityType: 'DEVICE',
+                time: device.lastSeen || 'Unknown'
+            });
+        }
+        
+        return alerts;
+    }, [device, tCommon.alerts.longOffline]);
+
     const AlertItem: React.FC<{ alert: any }> = ({ alert }) => {
         let bg = 'bg-blue-500/10';
         let text = 'text-blue-500';
@@ -94,6 +113,42 @@ export const DeviceOverview: React.FC<DeviceOverviewProps> = ({
     return (
         <div className="animate-in fade-in slide-in-from-bottom-2 duration-300 space-y-6">
                 
+                {/* Offline Status Banner */}
+                {device.status === 'OFFLINE' && (
+                    <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-4 flex items-start gap-4 shadow-sm">
+                        <div className="p-2 rounded-lg bg-red-500/10 text-red-500 shrink-0">
+                             <WifiOff size={24} />
+                        </div>
+                        <div className="flex-1">
+                            <h3 className="text-sm font-bold text-red-500 mb-1">Device Offline</h3>
+                            <p className="text-xs opacity-70" style={{color: theme.text}}>
+                                This device has been offline for more than 30 minutes ({device.lastSeen}). 
+                                Runtime operations are unavailable.
+                            </p>
+                            
+                            <div className="flex flex-wrap items-center gap-3 mt-4">
+                                 {/* Drain Button */}
+                                 <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-orange-500/30 text-orange-600 dark:text-orange-400 bg-orange-500/10 hover:bg-orange-500/20 text-xs font-bold transition-colors">
+                                    <Ban size={14} strokeWidth={2.5} />
+                                    {tCommon.devices.actions.drain}
+                                 </button>
+                                 
+                                 {/* Decommission Button */}
+                                 <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-red-500/30 text-red-600 dark:text-red-400 bg-red-500/10 hover:bg-red-500/20 text-xs font-bold transition-colors">
+                                    <Trash2 size={14} strokeWidth={2.5} />
+                                    {tCommon.devices.actions.decommission}
+                                 </button>
+
+                                 {/* Logs Link */}
+                                 <button onClick={() => setActiveTab('logs')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-xs font-bold ml-auto" style={{ borderColor: theme.stroke, color: theme.text }}>
+                                     <ExternalLink size={14} strokeWidth={2.5} />
+                                     <span>View Logs</span>
+                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 {/* 1. Usage Summary (Full Width, Compact) */}
                 <Card 
                     title={t.overview.usageSummary} 
@@ -194,16 +249,15 @@ export const DeviceOverview: React.FC<DeviceOverviewProps> = ({
                 {/* Alerts List (Right) */}
                 <Card title={tCommon.alerts.title} theme={theme}>
                         <div className="space-y-3 mt-1 h-full min-h-[160px]">
-                            {device.status === 'PENDING_LICENSE' || !device.license ? (
+                            {displayAlerts.length === 0 ? (
                                 <div className="flex flex-col items-center justify-center h-full py-8 opacity-40 text-center">
                                     <div className="p-2 rounded-full bg-black/5 dark:bg-white/5 mb-2">
                                         <Check size={16} />
                                     </div>
                                     <span className="text-xs font-medium">No active alerts</span>
-                                    <span className="text-[10px]">Device is not fully active</span>
                                 </div>
                             ) : (
-                                MOCK_DEVICE_ALERTS.map((alert, i) => (
+                                displayAlerts.map((alert, i) => (
                                     <AlertItem key={i} alert={alert} />
                                 ))
                             )}

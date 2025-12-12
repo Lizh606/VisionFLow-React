@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ThemeColors } from '../../../../types/index';
 import { ExternalLink } from 'lucide-react';
@@ -22,11 +23,11 @@ export const DeviceLogs: React.FC<DeviceLogsProps> = ({ theme, t }) => {
                 <div className="rounded-xl border overflow-hidden" style={{ borderColor: theme.stroke, background: theme.surface }}>
                     {MOCK_LOGS.map((log, i) => (
                         <div key={log.id} className="flex items-center gap-4 px-6 py-3 border-b last:border-0 hover:bg-black/5 dark:hover:bg-white/5 transition-colors" style={{ borderColor: theme.stroke }}>
-                            <span className="font-mono text-xs opacity-60 w-20" style={{ color: theme.text }}>{log.time}</span>
-                            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded w-16 text-center ${log.type === 'WARN' ? 'bg-orange-500/10 text-orange-500' : 'bg-blue-500/10 text-blue-500'}`}>
+                            <span className="font-mono text-xs opacity-60 w-20 shrink-0" style={{ color: theme.text }}>{log.time}</span>
+                            <span className={`text-[10px] font-bold px-2 py-1 rounded min-w-[80px] flex items-center justify-center shrink-0 whitespace-nowrap ${log.type === 'WARN' ? 'bg-orange-500/10 text-orange-500' : 'bg-blue-500/10 text-blue-500'}`}>
                                 {log.type}
                             </span>
-                            <span className="text-sm flex-1" style={{ color: theme.text }}>{log.msg}</span>
+                            <span className="text-sm flex-1 truncate" style={{ color: theme.text }}>{log.msg}</span>
                         </div>
                     ))}
                 </div>

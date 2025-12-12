@@ -179,7 +179,8 @@ export const zh = {
             export: '导出',
             view: '查看详情',
             bind: '绑定 License',
-            drain: '标记排空'
+            drain: '标记排空',
+            decommission: '退役设备'
         }
       },
       deviceDetail: {
